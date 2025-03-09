@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Letter of Recommendation</title>
+</head>
+<body>
+    <h1>Generate Letter of Recommendation</h1>
+    <form action="/generate_lor" method="POST">
+        <label for="for_whom">For Whom the Letter Is:</label>
+        <input type="text" id="for_whom" name="for_whom" required><br><br>
+
+        <label for="how_you_know">How You Know the Student:</label>
+        <input type="text" id="how_you_know" name="how_you_know" required><br><br>
+
+        <label for="subjects_taught">Subjects Taught:</label>
+        <input type="text" id="subjects_taught" name="subjects_taught" required><br><br>
+
+        <label for="marks">Marks in Your Subject:</label>
+        <input type="text" id="marks" name="marks" required><br><br>
+
+        <label for="projects">Projects Completed Under You:</label>
+        <input type="text" id="projects" name="projects" required><br><br>
+
+        <input type="submit" value="Generate LOR">
+    </form>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOP Generator</title>
+</head>
+<body>
+    <h1>Welcome to the SOP Generator</h1>
+    <p>Generate a new SOP or rate a prewritten one.</p>
+
+    <!-- Link to the prewritten SOP rating page -->
+    <a href="/rate_prewritten_sop">
+        <button>Rate a Prewritten SOP</button>
+    </a>
+    <!-- Add this to index.html -->
+    <a href="/generate_lor">
+        <button>Generate Letter of Recommendation</button>
+    </a>
+    <h2>Generate a New SOP</h2>
+    <form action="/" method="POST">
+        <label for="program">Program:</label>
+        <input type="text" id="program" name="program" required><br><br>
+
+        <label for="university">University:</label>
+        <input type="text" id="university" name="university" required><br><br>
+
+        <label for="field_interest">Field of Interest:</label>
+        <input type="text" id="field_interest" name="field_interest" required><br><br>
+
+        <label for="career_goal">Career Goal:</label>
+        <input type="text" id="career_goal" name="career_goal" required><br><br>
+
+        <label for="subjects_studied">Subjects Studied:</label>
+        <input type="text" id="subjects_studied" name="subjects_studied" required><br><br>
+
+        <label for="projects_internships">Projects/Internships:</label>
+        <input type="text" id="projects_internships" name="projects_internships" required><br><br>
+
+        <label for="lacking_skills">Lacking Skills:</label>
+        <input type="text" id="lacking_skills" name="lacking_skills" required><br><br>
+
+        <label for="program_benefits">Program Benefits:</label>
+        <input type="text" id="program_benefits" name="program_benefits" required><br><br>
+
+        <label for="contribution">Contribution:</label>
+        <input type="text" id="contribution" name="contribution" required><br><br>
+
+        <input type="submit" value="Generate SOP">
+    </form>
+</body>
+</html>
