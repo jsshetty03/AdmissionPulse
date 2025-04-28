@@ -1,0 +1,296 @@
+name,rating,type,state
+Stanford University,5.0,Private,CA
+Massachusetts Institute of Technology (MIT),5.0,Private,MA
+Harvard University,4.8,Private,MA
+University of California--Berkeley,4.9,Public,CA
+Carnegie Mellon University,4.9,Private,PA
+California Institute of Technology (Caltech),4.8,Private,CA
+University of Chicago,4.7,Private,IL
+Princeton University,4.5,Private,NJ
+Yale University,4.8,Private,CT
+Columbia University,4.3,Private,NY
+University of Michigan--Ann Arbor,4.6,Public,MI
+University of California--Los Angeles (UCLA),4.7,Public,CA
+Cornell University,4.6,Private,NY
+University of Washington--Seattle,4.5,Public,WA
+University of Pennsylvania (UPenn),4.7,Private,PA
+University of Texas--Austin,4.4,Public,TX
+Duke University,4.5,Private,NC
+University of Wisconsin--Madison,4.3,Public,WI
+Johns Hopkins University,4.6,Private,MD
+Northwestern University,4.4,Private,IL
+University of Southern California (USC),4.5,Private,CA
+New York University (NYU),4.2,Private,NY
+Georgia Institute of Technology,4.5,Public,GA
+University of California--San Diego (UCSD),4.4,Public,CA
+Brown University,4.4,Private,RI
+University of Illinois--Urbana-Champaign,4.4,Public,IL
+Rice University,4.5,Private,TX
+University of North Carolina--Chapel Hill,4.3,Public,NC
+University of Florida,4.2,Public,FL
+Pennsylvania State University--University Park,4.2,Public,PA
+Boston University,4.1,Private,MA
+University of Maryland--College Park,4.2,Public,MD
+Ohio State University--Columbus,4.1,Public,OH
+University of Minnesota--Twin Cities,4.0,Public,MN
+Purdue University--West Lafayette,4.2,Public,IN
+University of Pittsburgh,4.1,Public,PA
+Texas A&M University--College Station,4.0,Public,TX
+University of California--Davis,4.1,Public,CA
+University of California--Santa Barbara (UCSB),4.1,Public,CA
+Rutgers University--New Brunswick,3.9,Public,NJ
+University of Arizona,4.0,Public,AZ
+Indiana University--Bloomington,3.9,Public,IN
+Michigan State University,4.0,Public,MI
+University of Colorado--Boulder,4.0,Public,CO
+University of Georgia,4.0,Public,GA
+University of Iowa,3.9,Public,IA
+University of Connecticut,4.0,Public,CT
+University of Kansas,3.8,Public,KS
+University of Nebraska--Lincoln,3.8,Public,NE
+University of Oklahoma,3.8,Public,OK
+University of Kentucky,3.7,Public,KY
+University of South Carolina--Columbia,3.7,Public,SC
+University of Missouri--Columbia,3.7,Public,MO
+University of Oregon,3.7,Public,OR
+University of Alabama--Tuscaloosa,3.7,Public,AL
+Auburn University,3.6,Public,AL
+University of Tennessee--Knoxville,3.6,Public,TN
+University of Arkansas,3.6,Public,AR
+University of Mississippi,3.5,Public,MS
+University of New Mexico,3.5,Public,NM
+Louisiana State University--Baton Rouge,3.5,Public,LA
+University of Nevada--Reno,3.5,Public,NV
+University of Idaho,3.4,Public,ID
+University of Montana,3.4,Public,MT
+University of North Dakota,3.4,Public,ND
+University of Wyoming,3.4,Public,WY
+Boise State University,3.3,Public,ID
+San Diego State University,3.5,Public,CA
+California State University--Long Beach,3.5,Public,CA
+California Polytechnic State University--San Luis Obispo,3.7,Public,CA
+Arizona State University--Tempe,3.9,Public,AZ
+University of Central Florida,3.7,Public,FL
+Florida State University,3.8,Public,FL
+University of Houston,3.7,Public,TX
+University of Texas--Dallas,3.8,Public,TX
+University of North Texas,3.6,Public,TX
+Temple University,3.6,Public,PA
+University of Louisville,3.6,Public,KY
+University of Utah,3.8,Public,UT
+University of Cincinnati,3.7,Public,OH
+University of Buffalo--SUNY,3.8,Public,NY
+Stony Brook University--SUNY,3.7,Public,NY
+Binghamton University--SUNY,3.8,Public,NY
+University of Delaware,3.7,Public,DE
+University of Vermont,3.7,Public,VT
+University of Rhode Island,3.6,Public,RI
+University of Maine,3.5,Public,ME
+University of New Hampshire,3.6,Public,NH
+University of Massachusetts--Amherst,3.9,Public,MA
+Northeastern University,4.0,Private,MA
+Syracuse University,4.0,Private,NY
+University of Miami,4.1,Private,FL
+Tulane University,4.0,Private,LA
+University of Denver,4.0,Private,CO
+Clark University,3.8,Private,MA
+Drexel University,3.9,Private,PA
+University of California--Berkeley,4.7,Public,CA
+
+University of Texas--Austin,4.6,Public,TX
+
+University of Wisconsin--Madison,4.5,Public,WI
+
+University of Washington--Seattle,4.8,Public,WA
+
+University of Pennsylvania (UPenn),4.6,Private,PA
+
+University of Michigan--Ann Arbor,4.8,Public,MI
+
+University of Southern California (USC),4.6,Private,CA
+
+University of North Carolina--Chapel Hill,4.5,Public,NC
+
+University of Illinois--Urbana-Champaign,4.5,Public,IL
+
+University of California--San Diego (UCSD),4.6,Public,CA
+
+University of California--Los Angeles (UCLA),4.9,Public,CA
+
+University of Florida,4.4,Public,FL
+
+University of California--Davis,4.5,Public,CA
+
+University of Minnesota--Twin Cities,4.3,Public,MN
+
+University of Pittsburgh,4.2,Public,PA
+
+University of California--Santa Barbara (UCSB),4.3,Public,CA
+
+University of Arizona,4.4,Public,AZ
+
+Indiana University--Bloomington,4.3,Public,IN
+
+University of Miami,4.4,Private,FL
+
+University of Colorado--Boulder,4.2,Public,CO
+
+University of South Carolina--Columbia,4.0,Public,SC
+
+University of Iowa,4.2,Public,IA
+
+Michigan State University,4.3,Public,MI
+
+Ohio State University--Columbus,4.3,Public,OH
+
+University of Georgia,4.4,Public,GA
+
+Purdue University--West Lafayette,4.5,Public,IN
+
+University of New Hampshire,4.0,Public,NH
+
+Boston University,4.1,Private,MA
+
+Syracuse University,4.0,Private,NY
+
+University of Maryland--College Park,4.3,Public,MD
+
+University of Kentucky,4.0,Public,KY
+
+University of Alabama--Tuscaloosa,4.1,Public,AL
+
+Auburn University,4.0,Public,AL
+
+Temple University,3.9,Private,PA
+
+University of Utah,4.2,Public,UT
+
+University of Cincinnati,4.1,Public,OH
+
+University of Delaware,4.0,Public,DE
+
+University of Massachusetts--Amherst,4.2,Public,MA
+
+Stony Brook University--SUNY,3.9,Public,NY
+
+Binghamton University--SUNY,4.0,Public,NY
+
+University of Vermont,4.1,Public,VT
+
+University of Nevada--Reno,4.0,Public,NV
+
+University of Rhode Island,4.2,Public,RI
+
+University of Arkansas,4.1,Public,AR
+
+University of Houston,4.2,Public,TX
+
+University of Buffalo--SUNY,4.0,Public,NY
+
+Drexel University,4.2,Private,PA
+
+University of Denver,4.0,Private,CO
+
+Clark University,3.9,Private,MA
+
+Tulane University,4.1,Private,LA
+
+University of Miami,4.2,Private,FL
+
+Northeastern University,4.1,Private,MA
+
+San Diego State University,4.0,Public,CA
+
+California State University--Long Beach,3.9,Public,CA
+
+Arizona State University--Tempe,4.0,Public,AZ
+
+Florida State University,4.1,Public,FL
+
+University of Central Florida,4.1,Public,FL
+
+University of Texas--Dallas,4.0,Public,TX
+
+University of North Texas,4.1,Public,TX
+
+University of Oregon,3.9,Public,OR
+
+University of Missouri--Columbia,4.0,Public,MO
+
+University of New Mexico,3.9,Public,NM
+
+University of Montana,3.8,Public,MT
+
+University of North Dakota,3.8,Public,ND
+
+University of Wyoming,3.8,Public,WY
+
+Boise State University,3.7,Public,ID
+
+University of South Carolina--Columbia,4.1,Public,SC
+
+California Polytechnic State University--San Luis Obispo,4.0,Public,CA
+
+University of Texas--Arlington,3.9,Public,TX
+
+Purdue University--Fort Wayne,3.7,Public,IN
+
+University of California--Santa Cruz,3.8,Public,CA
+
+University of Nevada--Las Vegas,4.0,Public,NV
+
+Montana State University,3.6,Public,MT
+
+Western Michigan University,3.5,Public,MI
+
+San Francisco State University,3.8,Public,CA
+
+University of California--Merced,3.9,Public,CA
+
+University of Miami,3.8,Private,FL
+
+University of Nevada--Las Vegas,3.9,Public,NV
+
+University of Wisconsin--Milwaukee,3.8,Public,WI
+
+Florida Atlantic University,3.9,Public,FL
+
+University of New Orleans,3.8,Public,LA
+
+University of Charleston,3.7,Private,WV
+
+University of Illinois--Chicago,4.0,Public,IL
+
+Southern Methodist University,3.7,Private,TX
+
+University of Chicago,4.8,Private,IL
+
+University of Houston-Clear Lake,3.7,Public,TX
+
+University of Kansas,3.9,Public,KS
+
+University of Tulsa,3.8,Private,OK
+
+University of Arizona--Tucson,4.1,Public,AZ
+
+University of Cincinnati,3.8,Public,OH
+
+University of Wyoming,3.6,Public,WY
+
+Missouri University of Science and Technology,4.1,Public,MO
+
+University of Maine,3.7,Public,ME
+
+University of Nevada,3.8,Public,NV
+
+Illinois State University,3.9,Public,IL
+
+California State University--Chico,3.8,Public,CA
+
+New Jersey Institute of Technology,3.9,Public,NJ
+
+Kansas State University,3.9,Public,KS
+
+Montclair State University,3.8,Public,NJ
+
+University of North Carolina--Charlotte,3.9,Public,NC
