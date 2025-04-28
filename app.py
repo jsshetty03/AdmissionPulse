@@ -6,7 +6,12 @@ from sop_generator import generate_sop
 from lor_generator import generate_lor
 import pandas as pd
 import joblib
+from database import create_users_table
 import os
+from database import save_user_data
+
+# Add this import at the top of app.py
+from database import save_admission_prediction
 import numpy as np
 from datetime import datetime
 import time
@@ -299,16 +304,7 @@ def add_custom_css():
     """, unsafe_allow_html=True)
 
 def initialize_db():
-    conn = sqlite3.connect('users.db')
-    c = conn.cursor()
-    # Removed the DROP TABLE statement to maintain persistent user data
-    c.execute('''CREATE TABLE IF NOT EXISTS users (
-                 username TEXT PRIMARY KEY,
-                 password TEXT,
-                 email TEXT UNIQUE,
-                 full_name TEXT)''')
-    conn.commit()
-    conn.close()
+    create_users_table()
 
 def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
@@ -318,8 +314,10 @@ def create_user(username, password, email, full_name):
     c = conn.cursor()
     try:
         hashed_password = hash_password(password)
-        c.execute('INSERT INTO users (username, password, email, full_name) VALUES (?,?,?,?)',
-                  (username, hashed_password, email, full_name))
+        c.execute('''
+            INSERT INTO users (username, password, email, full_name) 
+            VALUES (?,?,?,?)
+        ''', (username, hashed_password, email, full_name))
         conn.commit()
         print(f"User '{username}' added successfully with hashed password '{hashed_password}'")
         return True
@@ -332,6 +330,7 @@ def create_user(username, password, email, full_name):
     finally:
         conn.close()
 
+
 def fetch_user(username):
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
@@ -343,8 +342,19 @@ def fetch_user(username):
 
 def login_user(username, password):
     user = fetch_user(username)
-    if user and user[1] == hash_password(password):  # Ensure passwords match
-        return True
+    if user:
+        # Get column names to locate password index
+        conn = sqlite3.connect('users.db')
+        c = conn.cursor()
+        c.execute('PRAGMA table_info(users)')
+        columns = [col[1] for col in c.fetchall()]
+        conn.close()
+        
+        password_index = columns.index('password')
+        if user[password_index] == hash_password(password):
+            # Store username in session
+            st.session_state['username'] = username
+            return True
     print(f"User '{username}' login failed.")
     return False
 
@@ -401,7 +411,7 @@ def main_app():
             col1, col2 = st.columns(2)
             with col1:
                 program = st.text_input("Program", placeholder="e.g., Master's in Computer Science")
-                university = st.text_input("University", placeholder="e.g., Stanford University")
+                university = st.text_input(" Target University", placeholder="e.g., Stanford University")
                 field_interest = st.text_input("Field of Interest", placeholder="e.g., Artificial Intelligence")
             with col2:
                 career_goal = st.text_input("Career Goal", placeholder="e.g., AI Researcher")
@@ -444,6 +454,10 @@ def main_app():
                     if sop is None or not isinstance(sop, str):
                         st.error("Failed to generate SOP. Please check your inputs and try again.")
                         return
+                    
+                    username = st.session_state.get('username', None)
+                    
+                    save_user_data(responses, sop, username)
 
                     # Rate the SOP
                     result = ImprovedSOPRater().rate_sop(sop)
@@ -592,7 +606,7 @@ def main_app():
                     try:
                         # Generate the LOR
                         lor = generate_lor(responses)
-                    
+                        
                         # Validate the LOR
                         if lor is None or not isinstance(lor, str):
                             st.error("Failed to generate LOR. Please check your inputs and try again.")
@@ -600,7 +614,16 @@ def main_app():
 
                         # Store LOR in session state
                         st.session_state['generated_lor'] = lor
-                        st.success("LOR successfully generated!")
+                        
+                        # Save the LOR to the database
+                        username = None
+                        if 'username' in st.session_state:
+                            username = st.session_state['username']
+                        
+                        from database import save_lor_data
+                        save_lor_data(responses, lor, username)
+                        
+                        st.success("LOR successfully generated and saved!")
                     except Exception as e:
                         st.error(f"An error occurred while generating the LOR: {str(e)}")
 
@@ -629,6 +652,8 @@ def main_app():
                     file_name=f"recommendation_letter_{datetime.now().strftime('%Y%m%d')}.txt",
                     mime="text/plain"
                 )
+
+                
 
     def tab_admission_prediction():
         st.markdown("""
@@ -723,8 +748,7 @@ def main_app():
                                       help="Rating of your current university (1-5, where 5 is highest)")
                 sop_score = st.slider("SOP Strength", 1.0, 5.0, 3.5, 0.1,
                                      help="Estimated strength of your Statement of Purpose (1-5)")
-                lor_score = st.slider("LOR Strength", 1.0, 5.0, 3.5, 0.1,
-                                     help="Estimated strength of your Letters of Recommendation (1-5)")
+                lor_score = 3.5
                 
                 # Add target university rank field with better styling
                 st.markdown("<h4 style='color: #3B82F6;'>Get Personalized Suggestions</h4>", unsafe_allow_html=True)
@@ -765,6 +789,20 @@ def main_app():
                         'CGPA': cgpa,
                         'Research': research_value
                     }
+
+                    # Get current username if logged in
+                    username = None
+                    if 'username' in st.session_state and st.session_state['username']:
+                        username = st.session_state['username']
+                    
+                    # Save the admission prediction data to the database
+                    try:
+                        from database import save_admission_prediction
+                        save_admission_prediction(input_data, username)
+                        st.success("Your profile details have been saved successfully!")
+                    except Exception as e:
+                        st.error(f"Error saving profile data: {e}")
+                        
                     
                     # Make the prediction
                     try:
@@ -1047,6 +1085,11 @@ def login_page():
         st.markdown("""
         <div style='margin-top: 2rem;'>
             <h3 style='text-align: center; color: #1E3A8A; margin-bottom: 1rem;'>What Students Say</h3>
+            <div style='background-color: #F8FAFC; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #3B82F6;'>
+                <p style='font-style: italic; margin-bottom: 0.5rem;'>"AdmissionPulse helped me decide on the perfect university, according to my profile "</p>
+                <p style='text-align: right; margin-bottom: 0; color: #64748B;'>— JASHAN S., JHU</p>
+            </div>
+        <div style='margin-top: 2rem;'>
             <div style='background-color: #F8FAFC; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #3B82F6;'>
                 <p style='font-style: italic; margin-bottom: 0.5rem;'>"AdmissionPulse helped me craft the perfect SOP that got me into IIT CHICAGO CS program!"</p>
                 <p style='text-align: right; margin-bottom: 0; color: #64748B;'>— AMMAR D., IIT CHICAGO University</p>
