@@ -12,7 +12,7 @@ import joblib
 import os
 
 # Load the dataset with flexible column name handling
-def load_and_prepare_data(file_path="/Users/ammardadani/Desktop/Sem 7 projects/major projct/1000entries.csv"):
+def load_and_prepare_data(file_path="/Users/jashanshetty29/Documents/AdmissionPulse-main/newp/1000entries.csv"):
     try:
         # Check if file exists
         if not os.path.exists(file_path):
@@ -64,7 +64,7 @@ def load_and_prepare_data(file_path="/Users/ammardadani/Desktop/Sem 7 projects/m
         return None, None, None
 
 # Load university data
-def load_university_data(file_path="/Users/ammardadani/Desktop/Sem 7 projects/major projct/uni_name.csv"):
+def load_university_data(file_path="/Users/jashanshetty29/Documents/AdmissionPulse-main/newp/1000entries.csv"):
     try:
         if not os.path.exists(file_path):
             print(f"Error: File '{file_path}' not found.")
@@ -284,14 +284,6 @@ def suggest_improvements(input_data, feature_importances, target_rank):
                 suggestions.append("  - Demonstrate how your background prepares you for success in their program")
         
         # Check LOR strength
-        if 'LOR' in input_data:
-            lor = input_data['LOR']
-            if lor < 4.0 and target_rank >= 3:
-                suggestions.append(f"• Obtain stronger Letters of Recommendation (currently rated {lor}/5.0):")
-                suggestions.append("  - Request letters from professors who know you well academically")
-                suggestions.append("  - Consider letters from research supervisors or internship mentors")
-                suggestions.append("  - Provide recommenders with your CV and statement of purpose")
-                suggestions.append("  - Remind them to highlight specific achievements and potential")
         
         # Additional general suggestions based on university ranking
         if target_rank >= 4:
@@ -503,7 +495,7 @@ if __name__ == "__main__":
     # Ask for dataset file path
     file_path = input("Enter the path to your dataset CSV file (or press Enter for default '1000entries.csv'): ").strip()
     if not file_path:
-        file_path = "/Users/ammardadani/Desktop/Sem 7 projects/major projct/1000entries.csv"
+        file_path = "/Users/jashanshetty29/Documents/AdmissionPulse-main/newp/1000entries.csv"
     
     # Load university data
     uni_data = load_university_data()
